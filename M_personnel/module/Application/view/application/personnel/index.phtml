@@ -1,0 +1,125 @@
+<?php
+
+use Zend\Session\Container;
+
+$container = new Container('alert');
+$acl_container = new Container('acl');
+$user_session = new Container('user');
+$acl= $acl_container->acl;
+$role= $user_session->role
+?>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $this->basePath('css/dataTables.bootstrap.min.css'); ?>"/>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->basePath('css/bootstrap.min.css'); ?>"/>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->basePath('css/fixedHeader.bootstrap.min.css'); ?>"/>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->basePath('css/responsive.bootstrap.min.css'); ?>"/>
+
+    <?php
+$title = 'Personel list';
+$this->headTitle($title);
+?>
+
+<div id="panel-container" >
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1><?= $this->escapeHtml($title) ?></h1>
+                </div>
+                 <?php if (isset($acl) && $acl->isAllowed($role, 'Application\Controller\Personnel', 'add')) { ; ?>
+                    <div class="col-sm-4">
+                    <a href="<?php echo $this->url('personnel', array('action' => 'add')); ?>" class="btn btn-primary pull-right" ><i class="glyphicon glyphicon-plus "></i>&nbsp;Add Personnel</a>
+
+                </div>
+                <?php }; ?>
+            </div>
+
+        </div>
+        <div class="panel-body">
+            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Middle name</th>
+                        <th>phone</th>
+                        <th>Email</th>
+                        <th>Region</th>
+                        <th>District</th>
+                        <th>Affiliation</th>
+                        <th>Current job title</th>
+                        <th>Last training date</th>
+                        <th>Type of training</th>
+                        <th>Length of training</th>
+                        <th>Training organization</th>
+                       <th>Training certificate</th>
+                        <th>Date training certificate issued</th>
+                        <th>Time worked as (assessor/auditor)</th>
+                        <th>Comment</th>
+                        <?php if (isset($acl) && $acl->isAllowed($role, 'Application\Controller\Personnel', 'update')) { ; ?>
+                    <th>Edit</th>
+                        <?php } ; ?>
+                        <?php if (isset($acl) && $acl->isAllowed($role, 'Application\Controller\Personnel', 'delete')) { ; ?>
+                        <th>Delete</th><?php }  ; ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($personnels as $personnel) : ?>
+                        <tr>
+                            <td><?= $this->escapeHtml($personnel->first_name) ?></td>
+                            <td><?= $this->escapeHtml($personnel->last_name) ?></td>
+                            <td><?= $this->escapeHtml($personnel->middle_name) ?></td>
+                            <td><?= $this->escapeHtml($personnel->phone) ?></td>
+                            <td><?= $this->escapeHtml($personnel->email) ?></td>
+                            <td><?= $this->escapeHtml($personnel->region_name) ?></td>
+                            <td><?= $this->escapeHtml($personnel->district_name) ?></td>
+                            <td><?= $this->escapeHtml($personnel->affiliation) ?></td>
+                            <td><?= $this->escapeHtml($personnel->current_jod) ?></td>
+                            <td><?= $this->escapeHtml(date("d-m-Y", strtotime($this->escapeHtml(($personnel->last_training_date)))))?></td>
+                            <td><?= $this->escapeHtml($personnel->type_of_training) ?></td>
+                            <td><?= $this->escapeHtml($personnel->length_of_training) ?></td>
+                            <td><?= $this->escapeHtml($personnel->training_organization) ?></td>
+                            <td><?= $this->escapeHtml($personnel->training_certificate) ?></td>
+                            <td><?= $this->escapeHtml(date("d-m-Y", strtotime($this->escapeHtml($personnel->date_certificate_issued)))) ?></td>
+                            <td><?= $this->escapeHtml($personnel->time_worked) ?></td>
+                            <td><?= $this->escapeHtml($personnel->Comments) ?></td>
+                            <?php if (isset($acl) && $acl->isAllowed($role, 'Application\Controller\Personnel', 'update')) { ; ?>
+                            <td><a href="<?= $this->url('personnel', ['action' => 'update', 'id' => base64_encode($personnel->id)]) ?>">Edit</a></td> <?php } ; ?>
+                          <?php if (isset($acl) && $acl->isAllowed($role, 'Application\Controller\Personnel', 'delete')) { ; ?>
+                      <td><a onclick="if (!confirm('Do you really want to remove ' + '<?php echo $this->escapeHtml($personnel->first_name.' '.$personnel->last_name.' '.$personnel->middle_name); ?> ' + '?')) {
+                                                        alert('Canceled!');
+                                                        return false;
+                          }; "href="<?= $this->url('personnel', ['action' => 'delete', 'id' => base64_encode($personnel->id)]) ?>">Delete</a></td> <?php } ; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                <tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="<?php echo $this->basePath('js/jquery-3.1.0.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->basePath('js/jquery.dataTables.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->basePath('js/dataTables.bootstrap.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->basePath('js/dataTables.fixedHeader.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->basePath('js/dataTables.responsive.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo $this->basePath('js/responsive.bootstrap.min.js'); ?>"></script>
+
+<script type="text/javascript" language="javascript" >
+    $(document).ready(function () {
+        
+         var table = $('#example').DataTable( {
+             "aProcessing": true,
+            "aServerSide": true,
+        responsive: true
+    } );
+ 
+    new $.fn.dataTable.FixedHeader( table );
+
+           });
+
+
+
+</script>

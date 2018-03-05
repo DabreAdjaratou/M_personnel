@@ -1,0 +1,81 @@
+<?php
+
+use Zend\Session\Container;
+$container = new Container('alert');
+     ?>
+<!DOCTYPE html>
+<html>
+
+    <head>
+       
+        <meta charset="UTF-8">
+
+        <title>Login</title>
+
+        <link rel="stylesheet" href="<?php echo $this->basePath('css/login.css') ?>" media="screen" type="text/css" />
+
+    </head>
+
+    <body>
+             
+    <html lang="en-US">
+        <head>
+
+            <meta charset="utf-8">
+
+            <title>Login</title>
+
+            <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+            <!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+         <![endif]-->
+
+        </head>
+
+        <body>
+            <style>
+
+
+            </style>
+
+            <div class="container">
+
+                <div id="login">
+
+                    <form action="<?php echo $this->url('login') ?>" method="POST">
+
+                        <fieldset class="clearfix">
+
+                            <p><span class="fontawesome-user"></span><input type="text" placeholder="Username"name="user" ></p> <!-- JS because of IE support; better: placeholder="Username" -->
+                            <p><span class="fontawesome-lock"></span><input type="password"  placeholder="Password" name="pass"</p> <!-- JS because of IE support; better: placeholder="Password" -->
+                            <p><input type="submit" value="Sign In"></p>
+
+                        </fieldset>
+
+                    </form>
+
+                </div> <!-- end login -->
+
+            </div>
+            <script type="text/javascript">
+               
+//                $(document).ready(function () {
+<?php
+if (isset($container->alertMsg) && $container->alertMsg != "") {
+    ?>
+                        alert("<?php echo $container->alertMsg;?>");
+    <?php
+    $container->alertMsg = "";
+    unset($container->alertMsg);
+}
+?>
+//                });
+            </script>
+        </body>
+    </html>
+
+
+</body>
+
+</html>

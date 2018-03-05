@@ -1,0 +1,413 @@
+body {
+    padding-top: 50px;
+    /*padding-bottom: 70px;*/
+}
+
+
+/*div.container a.navbar-brand > img {
+    display: inline;
+    margin-right: 4px;
+    margin-top: -15px;
+}*/
+
+#app_name{
+    color: white; 
+    font-weight: bold; 
+}
+
+#navbar-top{
+    background-color: #66CDAA;
+
+}
+nav.navbar {
+    border-radius: 0px;
+    border: none;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+/*nav.navbar:nth-child(2){
+position: fixed;
+     top: 30px;
+     left: 30px;
+     margin-top: 0px;
+     margin-left: 80px;
+     width: 200px;
+     height: 50px;
+}*/
+
+#panel-container {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#btn-login{
+    width: 80px;
+    height: 50px;
+}
+.mandatory{
+    color: red;
+    font-size: 20px;
+}
+.btn-danger{
+    width: 100px;
+}
+
+input[type=text],input[type=email],input[type=password],input[type=textarea],
+input[type=search],input[type=number],#Comments,select.form-control,select.input-sm{
+    width: 100%;
+    height: 44px;
+    padding: 10px 12px;
+    margin: -5px 0;
+    box-sizing: border-box;
+    /*border: 1px solid gainsboro;*/
+    border: 2px solid rgb(217, 217, 217);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    line-height: 30px;
+    border-radius: 0px;
+    font-family: "Open Sans",sans-serif;
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-language-override: normal;
+    font-size: 14px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-synthesis: weight style;
+    font-variant: normal;
+    font-variant-alternates: normal;
+    font-variant-caps: normal;
+    font-variant-east-asian: normal;
+    font-variant-ligatures: normal;
+    font-variant-numeric: normal;
+    font-variant-position: normal;
+    font-weight: 400;
+    height: 44px;
+    line-height: 19px;
+
+}
+
+input[type=search]{
+    height: 35px;
+}
+
+select.input-sm{
+    padding: 0px;
+}
+#Comments{
+    height: 100px;
+}
+
+label{
+    box-sizing: border-box;
+    color: rgb(85, 85, 85);
+    display: inline-block;
+    font-family: "Open Sans",sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 8px;
+    max-width: 100%;
+}
+
+
+@media screen and (max-width: 680px){
+
+    #app_name{
+        font-size: 100%;
+        margin-right: -10px;
+        padding: 0px;
+    }
+    #logo{
+        width: 40px;
+    }
+
+    div.container:nth-child(1) > div:nth-child(1){
+        margin-top:-10px;
+    }
+
+
+}
+
+
+
+@media screen and (min-width: 681px) and (max-width:1279px){
+
+    body{
+
+    }
+
+    #app_name{
+        font-size: 120%;
+
+    }
+
+    #logo{
+
+        width: 40px;
+    }
+
+
+
+}
+
+@media screen and (min-width: 1280px){
+
+    body{
+        /*background-color: green;*/
+    }
+    #app_name{
+        font-size: 150%;
+        margin-left: 200px;
+    }
+
+    #logo{
+
+        width: 60px;
+        padding: 0px;
+        margin: 0px;
+    }
+
+
+}
+
+
+/*        table {
+        display: block;
+        overflow-x: auto;
+    }*/
+
+
+/* table {
+        display: block;
+        overflow-x: auto;
+    }*/
+
+
+
+
+/* Required field Style */
+
+.required-field-block {
+    position: relative;   
+}
+
+.required-field-block .required-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin: -0.2em 0.25em 0em;
+    background-color: #E8E8E8;
+    border-color: #E8E8E8;
+    padding: 0.5em 0.8em;
+    color: rgba(0, 0, 0, 0.65);
+    text-transform: uppercase;
+    font-weight: normal;
+    border-radius: 0.325em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: background 0.1s linear;
+    -moz-transition: background 0.1s linear;
+    transition: background 0.1s linear;
+    font-size: 75%;
+}
+
+.required-field-block .required-icon {
+    background-color: transparent;
+    position: absolute;
+    top: 0em;
+    right: 0em;
+    z-index: 10;
+    margin: 0em;
+    width: 30px;
+    height: 30px;
+    padding: 0em;
+    text-align: center;
+    -webkit-transition: color 0.2s ease;
+    -moz-transition: color 0.2s ease;
+    transition: color 0.2s ease;
+}
+
+.required-field-block .required-icon:after {
+    position: absolute;
+    content: "";
+    right: 1px;
+    top: 1px;
+    z-index: -1;
+    width: 0em;
+    height: 0em;
+    border-top: 0em solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 0em solid transparent;
+    border-right-color: inherit;
+    -webkit-transition: border-color 0.2s ease;
+    -moz-transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease;
+}
+
+.required-field-block .required-icon .text {
+    color: red;
+    font-size: 26px;
+    margin: -3px 0 0 12px;
+}
+
+
+
+/*sidebar style*/
+body,html{
+    height: 100%;
+}
+
+/* remove outer padding */
+.main .row{
+    padding: 0px;
+    margin: 0px;
+}
+
+/*Remove rounded coners*/
+
+nav.sidebar.navbar {
+    border-radius: 0px;
+}
+
+nav.sidebar, .main{
+    -webkit-transition: margin 200ms ease-out;
+    -moz-transition: margin 200ms ease-out;
+    -o-transition: margin 200ms ease-out;
+    transition: margin 200ms ease-out;
+}
+
+/* Add gap to nav and right windows.*/
+.main{
+    padding: 10px 10px 0 10px;
+}
+
+/* .....NavBar: Icon only with coloring/layout.....*/
+
+/*small/medium side display*/
+@media (min-width: 768px) {
+
+    /*Allow main to be next to Nav*/
+    .main{
+        position: absolute;
+        width: calc(100% - 40px); /*keeps 100% minus nav size*/
+        margin-left: 40px;
+        float: right;
+        margin-top: 80px;
+    }
+
+    /*lets nav bar to be showed on mouseover*/
+    nav.sidebar:hover + .main{
+        margin-left: 200px;
+    }
+
+    /*Center Brand*/
+    nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+        margin-left: 0px;
+    }
+    /*Center Brand*/
+    nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
+        text-align: center;
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    /*Center Icons*/
+    nav.sidebar a{
+        padding-right: 13px;
+    }
+
+    /*adds border top to first nav box */
+    nav.sidebar .navbar-nav > li:first-child{
+        border-top: 1px #e5e5e5 solid;
+    }
+
+    /*adds border to bottom nav boxes*/
+    nav.sidebar .navbar-nav > li{
+        border-bottom: 1px #e5e5e5 solid;
+    }
+
+    /* Colors/style dropdown box*/
+    nav.sidebar .navbar-nav .open .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    /*allows nav box to use 100% width*/
+    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
+        padding: 0 0px 0 0px;
+    }
+
+    /*colors dropdown box text */
+    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+        color: #777;
+    }
+
+    /*gives sidebar width/height*/
+    nav.sidebar{
+        width: 200px;
+        height: 100%;
+        margin-left: -160px;
+        float: left;
+        z-index: 8000;
+        margin-bottom: 0px;
+        position: fixed;
+        
+    }
+
+    /*give sidebar 100% width;*/
+    nav.sidebar li {
+        width: 100%;
+    }
+
+    /* Move nav to full on mouse over*/
+    nav.sidebar:hover{
+        margin-left: 0px;
+    }
+    /*for hiden things when navbar hidden*/
+    .forAnimate{
+        opacity: 0;
+    }
+}
+
+/* .....NavBar: Fully showing nav bar..... */
+
+@media (min-width: 1330px) {
+
+    /*Allow main to be next to Nav*/
+    .main{
+        width: calc(100% - 200px); /*keeps 100% minus nav size*/
+        margin-left: 200px;
+    }
+
+    /*Show all nav*/
+    nav.sidebar{
+        margin-left: 0px;
+        float: left;
+    }
+    /*Show hidden items on nav*/
+    nav.sidebar .forAnimate{
+        opacity: 1;
+    }
+}
+
+nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
+    color: #CCC;
+    background-color: transparent;
+}
+
+nav:hover .forAnimate{
+    opacity: 1;
+}
+section{
+    padding-left: 15px;
+}
